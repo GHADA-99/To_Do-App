@@ -1,0 +1,12 @@
+{
+  "todo_list": "قائمة المهام",
+  "done": "تم" ,
+  "delete": "مسح",
+  "add_new_task": "اضافة مهمة جديدة",
+  "select_time": "اختار الوقت",
+  "settings": "الاعدادات",
+  "language": "اللغة",
+  "mode": "السمة",
+  "edit_tasks": "تحرير المهام",
+  "save_changes": "حفظ التعديلات"
+}

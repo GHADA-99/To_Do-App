@@ -1,0 +1,12 @@
+{
+  "todo_list": "To Do List",
+  "done": "Done" ,
+  "delete": "Delete",
+  "add_new_task": "Add new tasks",
+  "select_time": "Select time",
+  "settings": "Settings",
+  "language": "Language",
+  "mode": "Mode",
+  "edit_tasks": "Edit tasks",
+  "save_changes": "Save changes"
+}
