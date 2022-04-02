@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:to_do/appTheme.dart';
 import 'package:intl/intl.dart';
+import 'package:to_do/data/todo.dart';
 import 'package:to_do/firebase_utils.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class BottomSheetWidget extends StatefulWidget {
 
@@ -16,7 +18,6 @@ class _BottomSheetWidgetState extends State<BottomSheetWidget> {
   String taskDescription='';
   DateTime selectedDate=DateTime.now();
   bool taskIsDone=false;
-
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -24,7 +25,7 @@ class _BottomSheetWidgetState extends State<BottomSheetWidget> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text('Add new Task', style: Theme.of(context).textTheme.subtitle1),
+          Text(AppLocalizations.of(context)!.add_new_task, style: Theme.of(context).textTheme.subtitle1),
           Form(
             key: formController,
             child: Column(
@@ -84,7 +85,7 @@ class _BottomSheetWidgetState extends State<BottomSheetWidget> {
                     },
                     child: Container(
                         margin: const EdgeInsets.all(12),
-                        child: Text('Add Task',
+                        child: Text(AppLocalizations.of(context)!.add_task,
                             style: Theme.of(context).textTheme.subtitle2?.copyWith(color:MyThemeData.whiteColor ),
                         ),
                     ),
@@ -101,7 +102,7 @@ class _BottomSheetWidgetState extends State<BottomSheetWidget> {
      var chosendate= await showDatePicker(
         context: context,
         initialDate: selectedDate,
-        firstDate: DateTime.now().subtract(const Duration(days: 360)),
+        firstDate: DateTime.now(),
         lastDate: DateTime.now().add(const Duration(days: 360)),
     );
      if(chosendate!=null){
@@ -115,16 +116,15 @@ class _BottomSheetWidgetState extends State<BottomSheetWidget> {
   void  addTask(){
     //validation before adding a task for all form content
     if(formController.currentState?.validate()==true){
-      return;
-    }
       //add task
-      addTaskToFirebase(taskTitle, taskDescription, selectedDate,taskIsDone)
+      Task task=Task(title: taskTitle, description: taskDescription, date: DateUtils.dateOnly(selectedDate).millisecondsSinceEpoch);
+      addTaskToFirebase(task)
           .then((value) {
         Navigator.pop(context);
       }).onError((error, stackTrace) {
         print('error');
       }).timeout(Duration(seconds: 10),onTimeout: (){print('not connected');});
-
+    }
   }
 }
 
