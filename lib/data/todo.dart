@@ -1,20 +1,20 @@
 //data class with 2 function to use with converter
 
-class Todo{
+class Task{
   static const String collectionName='Todo tasks';
   String id;
   String title;
   String description;
-  DateTime date;
+  int date;  //hnt3aml b milliSecond
   bool isDone;
-  Todo({required this.id,required this.title,required this.description,required this.date,this.isDone=false});
-  //
-  Todo.fromJson(Map<String, Object?> json)
+  Task({ this.id='',required this.title,required this.description,required this.date,this.isDone=false});
+
+  Task.fromJson(Map<String, Object?> json)
       : this(
     id: json['id']! as String,
     title: json['title']! as String,
     description:json['description']! as String,
-    date: DateTime.fromMillisecondsSinceEpoch(json['date']as int),
+    date: json['date']as int,
     isDone:json['isDone']! as bool,
   );
   Map<String,Object?> toJson(){
@@ -22,7 +22,7 @@ class Todo{
       'id':id,
       'title':title,
       'description':description,
-      'date':date.millisecondsSinceEpoch,
+      'date':date,
       'isDone':isDone
     };
   }

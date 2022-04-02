@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'addTaskBottomSheet.dart';
 import 'settings/settingsTab.dart';
 import 'tasksList/tasksListTab.dart';
-
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import '../appTheme.dart';
 class HomePage extends StatefulWidget {
@@ -22,7 +22,7 @@ class _HomePageState extends State<HomePage> {
       appBar: PreferredSize(
         preferredSize:Size.fromHeight(MediaQuery.of(context).size.height*0.1),
         child: AppBar(
-          title: Text('To Do List',style: Theme.of(context).textTheme.headline1),
+          title: Text(AppLocalizations.of(context)!.todo_list,style: Theme.of(context).textTheme.headline1),
         ),
       ),
       bottomNavigationBar: BottomAppBar(

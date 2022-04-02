@@ -1,12 +1,18 @@
 {
-  "todo_list": "قائمة المهام",
-  "done": "تم" ,
-  "delete": "مسح",
-  "add_new_task": "اضافة مهمة جديدة",
-  "select_time": "اختار الوقت",
-  "settings": "الاعدادات",
-  "language": "اللغة",
-  "mode": "السمة",
-  "edit_tasks": "تحرير المهام",
-  "save_changes": "حفظ التعديلات"
+  "todo_list": "To Do List",
+  "done": "Done" ,
+  "delete": "Delete",
+  "add_new_task": "Add new tasks",
+  "add_task": "Add Task ",
+  "select_time": "Select time",
+  "settings": "Settings",
+  "language": "Language",
+  "arabic": "Arabic",
+  "english": "English",
+  "light": "Light",
+  "dark": "Dark",
+  "mode": "Mode",
+  "edit_tasks": "Edit tasks",
+  "save_changes": "Save changes",
+  "drop_down": "Drop Down"
 }
