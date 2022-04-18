@@ -50,9 +50,10 @@ Future<void> deleteTask(Task task){
 }
 
 //update data
-void updateTask(Task task){
+
+Future<void> updateTask(Task task){
   CollectionReference<Task> collectionRef =  getCollectionReferenceWithConverter();
-  collectionRef.doc(task.id).update({
+  return collectionRef.doc(task.id).update({
     'title':task.title,
     'description':task.description,
     'date':task.date

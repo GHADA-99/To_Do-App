@@ -34,7 +34,7 @@ class _ListItemState extends State<ListItem> {
       child: InkWell(
         onTap: (){
           //Navigate with parameters to another page
-          Navigator.pushNamed(context, UpdateScreen.routeName);
+          Navigator.pushNamed(context, UpdateScreen.routeName,arguments:widget.task);
         },
         child: Container(
           padding: const EdgeInsets.all(16),
@@ -57,13 +57,13 @@ class _ListItemState extends State<ListItem> {
                   children: [
                     Text(widget.task.title,style: Theme.of(context).textTheme.subtitle2?.copyWith(color: MyThemeData.blueColor)),
                     Text(widget.task.description,style: Theme.of(context).textTheme.bodyText1?.copyWith(color: MyThemeData.blueColor)),
-                    Row(
-                      children:const [
-                        Icon(Icons.watch_later_outlined),
-                        SizedBox(width: 8,),
-                        Text("task.date"),
-                      ],
-                    ),
+                    // Row(
+                    //   children:const [
+                    //     Icon(Icons.watch_later_outlined),
+                    //     SizedBox(width: 8,),
+                    //     Text("task.date"),
+                    //   ],
+                    // ),
                   ],
                 ),
               ),
